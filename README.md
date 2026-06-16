@@ -16,7 +16,7 @@ A Streamlit-powered AI chatbot for querying Australian demographic data, built w
 
 ```
 ┌─────────────┐         ┌─────────────┐         ┌─────────────┐
-│   Streamlit  │ ──────> │  LangChain  │ ──────> │   Gemini    │
+│   Streamlit │ ──────> │  LangChain  │ ──────> │   Gemini    │
 │   Chat UI   │ <────── │    Agent    │ <────── │     LLM     │
 └─────────────┘         └──────┬──────┘         └─────────────┘
                                │
