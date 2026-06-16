@@ -1,14 +1,16 @@
-# Demografy AI Assistant
+# Insights Engine
 
-A Streamlit-based chatbot that assists users in querying Australian demographic data using **LangChain**, **Google Gemini**, and **Google BigQuery**.
+A Streamlit-powered AI chatbot for querying Australian demographic data, built with **LangChain**, **Google Gemini**, and **Google BigQuery**.
 
 ## Features
 
 - 🤖 AI-powered natural language chat interface
-- 📊 Real-time BigQuery data access
+- 📊 Real-time BigQuery data access with interactive charts
 - 🇦🇺 Australian demographic analytics
 - 💬 Conversational memory for context-aware responses
+- 👤 Customer authentication with tiered access (Free / Basic / Pro)
 - 🔒 Read-only safe query execution
+- 🚪 Session management with logout
 
 ## Architecture
 
@@ -30,6 +32,16 @@ A Streamlit-based chatbot that assists users in querying Australian demographic 
                         │  demografy  │
                         └─────────────┘
 ```
+
+## Customer Tiers
+
+| Tier  | Question Limit | Warning Threshold |
+|-------|:-------------:|:-----------------:|
+| Free  |       5       |         5         |
+| Basic |      20       |        15         |
+| Pro   |      50       |        45         |
+
+Customers are looked up from `demografy.ref_tables.dev_customers` on login. Inactive accounts are blocked from access.
 
 ## Prerequisites
 
@@ -92,7 +104,11 @@ DAX/
 │   └── chat_chain.py           # LangChain agent with Gemini
 ├── tools/
 │   ├── __init__.py
-│   └── bigquery_tool.py        # Custom BigQuery tool
+│   ├── bigquery_tool.py        # Custom BigQuery query tool
+│   ├── charting.py             # Chart rendering utility
+│   └── customer.py             # Customer authentication & tier management
+├── img/
+│   └── logo-Ds8JU9Fb.svg       # Brand logo
 ├── .env.example                # Environment variables template
 ├── requirements.txt            # Python dependencies
 └── README.md                   # This file
@@ -128,6 +144,7 @@ DAX/
 - Query timeout enforced at 30 seconds
 - 1 GB bytes-billed limit per query
 - Only the `demografy.prod_tables.a_master_view` table is accessible
+- Customer tier enforcement limits question usage per session
 
 ## License
 
