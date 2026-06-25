@@ -17,6 +17,11 @@ BIGQUERY_PROJECT = os.getenv("BIGQUERY_PROJECT", "demografy")
 BIGQUERY_DATASET = os.getenv("BIGQUERY_DATASET", "prod_tables")
 BIGQUERY_TABLE = os.getenv("BIGQUERY_TABLE", "a_master_view")
 
+# LangChain configuration
+LANGCHAIN_API_KEY = os.getenv("LANGCHAIN_API_KEY","")
+LANGCHAIN_TRACING_V2 = os.getenv("LANGCHAIN_TRACING_V2","")
+LANGCHAIN_PROJECT = os.getenv("LANGCHAIN_PROJECT","")
+
 # Fully qualified table name
 FULL_TABLE_NAME = f"{BIGQUERY_PROJECT}.{BIGQUERY_DATASET}.{BIGQUERY_TABLE}"
 

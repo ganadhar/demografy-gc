@@ -6,7 +6,7 @@ from langchain_core.messages import (
     ToolMessage,
 )
 
-from config.settings import GEMINI_API_KEY, GEMINI_MODEL, GEMINI_TEMPERATURE, SYSTEM_PROMPT
+from config.settings import GEMINI_API_KEY, GEMINI_MODEL, GEMINI_TEMPERATURE, SYSTEM_PROMPT, LANGCHAIN_API_KEY, LANGCHAIN_TRACING_V2, LANGCHAIN_PROJECT
 from tools.bigquery_tool import BigQueryTool
 
 import logging
